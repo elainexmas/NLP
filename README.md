@@ -1,10 +1,14 @@
 Homework 2: Autocorrect
+
 Correcting Spelling Errors
+
 Due: Tuesday March 27 at 5:00pm Pacific Daylight Time
+
 
 In this assignment you will be training a language model to build a spell checker. Specifically, you will be implementing part of a noisy-channel model for spelling correction. We will give the likelihood term, or edit model, and your job is to make a language model, the prior distribution in the noisy channel model. At test time you will be given a sentence with exactly one typing error. We then select the correction which gets highest likelihood under the noisy-channel model, using your language model as the prior. Your language models will be evaluated for accuracy, the number of valid corrections, divided by the number of test sentences.
 
 Data
+
 We will be using the writings of secondary-school children, collected by David Holbrook. Note that this corpus is available online, so do not Google around for it! The training data is located in the data/ directory. A summary of the contents:
 
     holbrook-tagged-train.dat: the corpus to train your language models
@@ -16,6 +20,7 @@ Note that the data files do not contain <s> and </s> markers, but the code which
 -----
 
 Your Assignment, Should You Choose to Accept It
+
 Implement the following language models:
 
     Laplace Unigram Language Model: a unigram model with add-one smoothing. Treat out-of-vocabulary items as a word which was seen zero times in training.
@@ -33,6 +38,7 @@ To implement a language model you need to implement two functions:
 -----
 
 Evaluation
+
 Your language models will be evaluated on the development data set and a held-out test set. The performance of each language model will be evaluated with respect to the performance of our solution implementation. To help with your implementation, we give you the expected performance of each language model on the development set:
 
     Laplace Unigram Language Model: 0.11
@@ -45,6 +51,7 @@ Note that the performance we expect from your language model is not that great! 
 -----
 
 Given Code
+
 The rest of the scaffolding has been provided (reading corpora, computed edit probabilities, computing the argmax correction). A short summary of the remaining files:
 
     SpellCorrect.{py, java}: Computes the most likely correction given a language model and edit model. The main() function here will load all of your language model and print performance on the development data, useful for debugging. It may be useful to comment out some of the tests in main() when developing.
