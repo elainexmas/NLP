@@ -61,9 +61,7 @@ class CustomLanguageModel:
 	    score += math.log(count3)
 	    score -= math.log(self.bigramCounts[(token1,token2)])
 	elif count2 > 0: # no trigram, but bigram exists
-	    # score += math.log(0.4) + math.log(self.bigramCounts[(token2,token3)]+1)
 	    score += math.log(0.4) + math.log(count2)
-	   #  score -= math.log(self.unigramCounts[token2]+len(self.unigramCounts))
 	    score -= math.log(self.unigramCounts[token2])
 	else: # no trigram or bigram
 	    score += math.log(0.4) + math.log(self.unigramCounts[token3]+1)
@@ -84,9 +82,7 @@ class CustomLanguageModel:
 	score += math.log(count3)
 	score -= math.log(self.bigramCounts[(token2,token3)])
     elif count2 > 0: # no trigram, but bigram exists
-	# score += math.log(0.4) + math.log(self.bigramCounts[(token2,token3)]+1)
 	score += math.log(0.4) + math.log(count2)
-	#  score -= math.log(self.unigramCounts[token2]+len(self.unigramCounts))
 	score -= math.log(self.unigramCounts[token2])
     else: # no trigram or bigram
 	score += math.log(0.4) + math.log(count1+1)
